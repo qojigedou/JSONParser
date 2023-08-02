@@ -6,6 +6,8 @@
 
 #include <string>
 
+namespace json {
+
 class Lexer {
 public:
     Lexer(const InputDriver& inputData);
@@ -25,5 +27,7 @@ private:
     bool isWritebackState(uint8_t state);
     Token::Type getFinalStateType(uint8_t state);
 };
+
+}; // namespace json
 
 #endif // JSON_LEXER_H

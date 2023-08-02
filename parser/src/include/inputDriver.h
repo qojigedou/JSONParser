@@ -4,10 +4,13 @@
 #include <string>
 #include <iostream>
 
+namespace json {
+
 class InputDriver{
+    friend class Lexer;
+    friend class Parser;
 
-public:
-
+private:
     std::string inputData;
     size_t pos;
 
@@ -16,11 +19,8 @@ public:
 
     char getChar();
     char writeBack();
-
-    friend class Lexer;
-    friend class parserFunctionality;
-
-    
 };
+
+}; // namespace json
 
 #endif // JSON_INPUTDRIVER_H

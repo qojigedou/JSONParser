@@ -1,6 +1,12 @@
+#ifndef JSON_PARSER_H
+#define JSON_PARSER_H
+
 #include "inputDriver.h"
 #include "token.h"
 #include "lexer.h"
+#include "member.h"
+#include "container.h"
+
 #include <map>
 #include <stdexcept>
 #include <vector>
@@ -10,43 +16,35 @@
 #include <string>
 #include <stack>
 
+namespace json {
 
 class Parser {
-    typedef enum {
-        OBJECT,
-        ARRAY,
-        BOOLEAN,
-        NIL,
-        INTEGER,
-        FLOAT,
-        STRING
-    } MemberType;
-
-    struct JSONMember {
-        MemberType type;
-        void* value;
-    };
-
     Lexer lexer;
     Token token;
     std::stack<std::string> keys;
-    std::stack<JSONMember*> members;
-    JSONMember root;
-    std::vector<JSONMember*> arrMember;
+    std::stack<json::Container *> containers;
+    json::Container *root = nullptr;
+
+    bool accept(Token::Type type);
 
     void parseJSON();
     void parseObject();
     void parseArray();
-    void parseMember();
+    void parseMembers();
     void parsePair();
     void parseElements();
     void parseValue();
     bool stringToBool(std::string stringValue);
+    void printMap(Member *top);
     
 
     public:
         void parse();
-        std::string readJsonFromFile(const std::string& filename);
+        static std::string readJsonFromFile(const std::string& filename);
         Parser(const std::string& input);
         void printMap();
 };
+
+}; // namespace json
+
+#endif // JSON_PARSER_H

@@ -1,4 +1,6 @@
-#include "inputDriver.h"
+#include "include/inputDriver.h"
+
+using namespace json;
 
 InputDriver::InputDriver(std::string inputStr){
     inputData = inputStr;
@@ -13,6 +15,6 @@ char InputDriver::writeBack(){
     if(pos > 0){
         pos--;
     }
-    
+
     return inputData[pos];
 }

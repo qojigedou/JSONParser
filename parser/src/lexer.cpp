@@ -1,5 +1,6 @@
-#include "lexer.h"
+#include "include/lexer.h"
 
+using namespace json;
 
 Lexer::Lexer(const InputDriver& inputData) : inputData(inputData) {}
 Lexer::Lexer(){

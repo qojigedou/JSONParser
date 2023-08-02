@@ -1,4 +1,6 @@
-#include "token.h"
+#include "include/token.h"
+
+using namespace json;
 
 void Token::popChar(){
     lexeme.pop_back();

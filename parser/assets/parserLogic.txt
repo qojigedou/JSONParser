@@ -1,0 +1,20 @@
+ <Json> ::= <Object>
+          | <Array>
+
+ <Object> ::= '{' [<Members>] '}'
+
+ <Members> ::= <Pair> [',' <Members>]
+
+ <Pair> ::= String ':' <Value>
+
+ <Array> ::= '[' [<Elements>] ']'
+
+ <Elements> ::= <Value> [',' <Elements>]
+
+ <Value> ::= String
+           | Number
+           | <Object>
+           | <Array>
+           | true
+           | false
+           | null

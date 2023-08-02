@@ -1,0 +1,9 @@
+{
+    "object": {
+        "object_in_object": {
+            "cat": "dog"
+        },
+        "array_in_object": [1, 2, 3],
+        "array_with_object": [{ "tree": "summer" }, [1, 2, 3, 4]]
+    }
+}

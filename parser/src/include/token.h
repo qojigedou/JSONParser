@@ -3,11 +3,13 @@
 
 #include <string>
 
+namespace json {
+
 class Token {
     friend class Lexer;
     friend class Parser;
 
-public:
+private:
     typedef enum {
         LBRA,
         RBRA,
@@ -29,5 +31,7 @@ public:
     void pushChar(char c);
     void popChar();
 };
+
+}; // namespace json
 
 #endif // JSON_TOKEN_H
