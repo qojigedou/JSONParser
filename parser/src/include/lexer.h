@@ -5,6 +5,7 @@
 #include "token.h"
 
 #include <string>
+#include <cstdint>
 
 namespace json {
 
