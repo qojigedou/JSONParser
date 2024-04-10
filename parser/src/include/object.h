@@ -6,18 +6,19 @@
 #include <string>
 #include <map>
 
-namespace json {
+namespace json
+{
 
-class Object: public Container {
-public:
+    class Object : public Container
+    {
 
-private:
-    friend class Parser;
+    private:
+        friend class Parser;
 
-    std::map<std::string, Member *> data;
+        std::map<std::string, Member *> data;
 
-    void put(std::string key, Member *value) override;
-};
+        void put(std::string key, Member *value) override;
+    };
 
 }; // namespace json
 
