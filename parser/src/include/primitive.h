@@ -4,16 +4,15 @@
 #include "member.h"
 #include <string>
 
-namespace json {
+namespace json
+{
 
-class Primitive : public Member {    
-public:
+    class Primitive : public Member
+    {
+        friend class Parser;
 
-private:
-    friend class Parser;
-    
-    void *data;
-};
+        void *data;
+    };
 
 }; // namespace json
 

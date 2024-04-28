@@ -6,18 +6,19 @@
 #include <string>
 #include <vector>
 
-namespace json {
+namespace json
+{
 
-class Array: public Container {
-public:
+    class Array : public Container
+    {
+    public:
+    private:
+        friend class Parser;
 
-private:
-    friend class Parser;
+        std::vector<Member *> data;
 
-    std::vector<Member *> data;
-
-    void put(std::string key, Member *value) override;
-};
+        void put(std::string key, Member *value) override;
+    };
 
 }; // namespace json
 

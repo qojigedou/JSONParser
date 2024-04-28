@@ -3,34 +3,37 @@
 
 #include <string>
 
-namespace json {
+namespace json
+{
 
-class Token {
-    friend class Lexer;
-    friend class Parser;
+    class Token
+    {
+        friend class Lexer;
+        friend class Parser;
 
-private:
-    typedef enum {
-        LBRA,
-        RBRA,
-        LSQBRA,
-        RSQBRA,
-        COMMA,
-        NUMBER,
-        COLON,
-        STRING,
-        ERROR,
-        BOOL_VALUE,
-        NULL_VALUE,
-        EOI
-    } Type;
+    private:
+        typedef enum
+        {
+            LBRA,
+            RBRA,
+            LSQBRA,
+            RSQBRA,
+            COMMA,
+            NUMBER,
+            COLON,
+            STRING,
+            ERROR,
+            BOOL_VALUE,
+            NULL_VALUE,
+            EOI
+        } Type;
 
-    Type type;
-    std::string lexeme{""};
+        Type type;
+        std::string lexeme{""};
 
-    void pushChar(char c);
-    void popChar();
-};
+        void pushChar(char c);
+        void popChar();
+    };
 
 }; // namespace json
 

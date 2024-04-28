@@ -4,22 +4,25 @@
 #include <string>
 #include <iostream>
 
-namespace json {
+namespace json
+{
 
-class InputDriver{
-    friend class Lexer;
-    friend class Parser;
+    class InputDriver
+    {
+        friend class Lexer;
+        friend class Parser;
 
-private:
-    std::string inputData;
-    size_t pos;
+    private:
+        std::string inputData;
+        size_t pos;
 
-    InputDriver(std::string inputStr);
-    InputDriver(){}
+        InputDriver(std::string inputStr);
+        InputDriver() {}
+        ~InputDriver(){};
 
-    char getChar();
-    char writeBack();
-};
+        char getChar();
+        char writeBack();
+    };
 
 }; // namespace json
 

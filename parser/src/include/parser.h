@@ -16,34 +16,39 @@
 #include <string>
 #include <stack>
 
-namespace json {
+namespace json
+{
 
-class Parser {
-    Lexer lexer;
-    Token token;
-    std::stack<std::string> keys;
-    std::stack<json::Container *> containers;
-    json::Container *root = nullptr;
+    class Parser
+    {
+        Lexer lexer;
+        Token token;
+        std::stack<std::string> keys;
+        std::stack<json::Container *> containers;
+        json::Container *root = nullptr;
 
-    bool accept(Token::Type type);
+        bool accept(Token::Type type);
 
-    void parseJSON();
-    void parseObject();
-    void parseArray();
-    void parseMembers();
-    void parsePair();
-    void parseElements();
-    void parseValue();
-    bool stringToBool(std::string stringValue);
-    void printMap(Member *top);
-    
+        void parseJSON();
+        void parseObject();
+        void parseArray();
+        void parseMembers();
+        void parsePair();
+        void parseElements();
+        void parseValue();
+        bool stringToBool(std::string stringValue);
+        void printMap(Member *top);
 
     public:
         void parse();
-        static std::string readJsonFromFile(const std::string& filename);
-        Parser(const std::string& input);
+        static std::string readJsonFromFile(const std::string &filename);
+
         void printMap();
-};
+
+        Parser(){};
+        Parser(const std::string &input);
+        ~Parser(){};
+    };
 
 }; // namespace json
 

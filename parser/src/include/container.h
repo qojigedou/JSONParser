@@ -4,12 +4,14 @@
 #include "member.h"
 #include <string>
 
-namespace json {
+namespace json
+{
 
-class Container : public Member {
-public:
-    virtual void put(std::string key, Member *member) = 0;
-};
+    class Container : public Member
+    {
+    public:
+        virtual void put(std::string key, Member *member) = 0;
+    };
 
 }; // namespace json
 
